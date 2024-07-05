@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI Prediction Result</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        /* All animations will take twice as long to finish */
+        :root {
+            --animate-duration: 6s;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <div class="container mx-auto p-8 flex flex-col items-center justify-center h-screen">
+        <h1 class="text-5xl font-bold mb-4 text-center text-black-500 animate__animated animate__bounce">AQI Prediction Result</h1>
+        <h3 class="text-3xl font-bold mb-4 text-center text-blue-500 animate__animated animate__bounce">The calculated AQI is: {{ aqi }}</h3>
+        <p class="text-xl font-bold mb-4 text-center">
+            AQI Level: 
+            <span class="
+                inline-block px-2 py-1 rounded-lg
+                {% if aqi_text == 'Good' %}
+                    bg-green-500 text-white
+                {% elif aqi_text == 'Moderate' %}
+                    bg-blue-500 text-white
+                {% elif aqi_text == 'Unhealthy for Sensitive Groups' %}
+                    bg-yellow-500 text-black
+                {% elif aqi_text == 'Unhealthy' %}
+                    bg-red-500 text-white
+                {% elif aqi_text == 'Very Unhealthy' %}
+                    bg-purple-500 text-white
+                {% elif aqi_text == 'Hazardous' %}
+                    bg-black text-white
+                {% endif %}
+                animate__animated animate__bounce"
+            >
+                {{ aqi_text }}
+            </span>
+        </p>
+        <h2 class="text-2xl font-bold mb-4 text-center text-black-500">{{ health }}</h2>
+        
+        <a href="/prediction" class="text-blue-500 mt-4 animate__animated animate__fadeIn">Back to Input</a>
+    </div>
+
+</body>
+</html>
