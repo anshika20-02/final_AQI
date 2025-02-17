@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AQI prediction</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <style>
+        /* All animations will take twice as long to finish */
+        :root {
+            --animate-duration: 6s;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <nav class="bg-blue-500 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-white font-bold text-2xl animate__animated animate__flash justify-center">AQI Prediction</div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto flex justify-center items-center h-screen">
+        <div class="text-4xl text-blue-600 font-bold">
+            AQI Prediction is <span class="animate__animated animate__flash">{{ result }}</span>
+        </div>
+    </div>
+
+</body>
+</html>
+
